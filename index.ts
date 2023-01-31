@@ -31,7 +31,7 @@ const myProfile: Member = {
     2. dobbyFollowers와 harryFollowers가 컴파일 되도록 하세요.
 */
 
-const dobbyFollowers: Member = [{ usrename: "harry", imgUrl: "harry.jpg" }];
+const dobbyFollowers: Member = [{ username: "harry", imgUrl: "harry.jpg" }];
 const harryFollowers: Member = [];
 
 /*
