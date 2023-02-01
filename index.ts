@@ -143,27 +143,27 @@ type CustomType = NonNullable<UserSelect>;
     10. 다음 함수들의 반환 타입을 유틸리티 타입을 사용해 정의해보세요.
 */
 
-function getsUsername(user: User): TGetUserNameReturn {
+function getsUsername(user: User) {
   return user.username;
 }
 
-type TGetUserNameReturn = Pick<User, "username">["username"];
+type TGetUserNameReturn = ReturnType<typeof getsUsername>;
 
 // ---
 
-function getUser(member: Member): TGetUserReturn {
+function getUser(member: Member) {
   return { username: member.username, imgUrl: member.imgUrl } as User;
 }
 
-type TGetUserReturn = Pick<Member, "username" | "imgUrl">;
+type TGetUserReturn = ReturnType<typeof getUser>;
 
 // ---
 
-function getFollowersAndViewCount(member: Member): TFollowerAndViewCountReturn {
+function getFollowersAndViewCount(member: Member) {
   return {
     followers: member.followers,
     viewCount: member.viewCount,
   };
 }
 
-type TFollowerAndViewCountReturn = Pick<Member, "followers" | "viewCount">;
+type TFollowerAndViewCountReturn = ReturnType<typeof getFollowersAndViewCount>;
