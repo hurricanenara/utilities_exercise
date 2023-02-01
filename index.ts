@@ -121,7 +121,6 @@ const states: Record<NotClosed, NotClosed> = {
     그런 후, MemoryUsage의 프로퍼티 중 2개를 사용해보세요.
 */
 
-// // process 모듈에서 안 내보냄. NodeJS 전역에 있음.
 import { memoryUsage } from "node:process";
 
 const MemoryUsage: Partial<ReturnType<typeof memoryUsage>> = {
