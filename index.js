@@ -26,38 +26,46 @@ const clientRequest = {
     headers: { Connection: "keep-alive" },
 };
 const net = require("net");
+//* Required 유틸리티 타입 고찰
+// type test = {
+//   ttest?: undefined;
+// };
+// const tttest: Required<test> = {
+//   ttest: undefined, //- 에러 ttest : never 이어서 undefined 를 쓸 수 없다
+// };
+//- 선택 옵션인 속성이 undefined 타입을 가질때 Required 유틸리티 타입을 쓰면 never 이 됨
 const mySocketOptions = {
     isServer: true,
     server: net.Server,
     session: Buffer.from(""),
     requestOCSP: true,
-    ca: "string | Buffer | (string | Buffer)[]",
-    cert: "string | Buffer | Array<string | Buffer> | undefined",
-    sigalgs: "string | undefined",
-    ciphers: "string | undefined",
-    clientCertEngine: "string | undefined",
-    crl: "string | Buffer | Array<string | Buffer> | undefined",
-    dhparam: "string | Buffer | undefined",
-    ecdhCurve: "string | undefined",
-    honorCipherOrder: true,
-    key: "string | Buffer | Array<string | Buffer | KeyObject> | undefined",
-    privateKeyEngine: "string | undefined",
-    privateKeyIdentifier: "string | undefined",
-    maxVersion: "TLSv1.3",
-    minVersion: "TLSv1.3",
-    passphrase: "string | undefined",
-    pfx: "string | Buffer | Array<string | Buffer | PxfObject> | undefined",
-    secureOptions: 123,
-    secureProtocol: "string | undefined",
-    sessionIdContext: "string | undefined",
-    ticketKeys: Buffer.from(""),
-    sessionTimeout: 123,
-    secureContext: net,
-    enableTrace: true,
-    requestCert: true,
-    ALPNProtocols: [],
-    SNICallback: net,
-    rejectUnauthorized: true,
+    // ca: "string | Buffer | (string | Buffer)[]",
+    // cert: "string | Buffer | Array<string | Buffer> | undefined",
+    // sigalgs: "string | undefined",
+    // ciphers: "string | undefined",
+    // clientCertEngine: "string | undefined",
+    // crl: "string | Buffer | Array<string | Buffer> | undefined",
+    // dhparam: "string | Buffer | undefined",
+    // ecdhCurve: "string | undefined",
+    // honorCipherOrder: true,
+    // key: "string | Buffer | Array<string | Buffer | KeyObject> | undefined",
+    // privateKeyEngine: "string | undefined",
+    // privateKeyIdentifier: "string | undefined",
+    // maxVersion: "TLSv1.3",
+    // minVersion: "TLSv1.3",
+    // passphrase: "string | undefined",
+    // pfx: "string | Buffer | Array<string | Buffer | PxfObject> | undefined",
+    // secureOptions: 123, // Value is a numeric bitmask of the `SSL_OP_*` options
+    // secureProtocol: "string | undefined",
+    // sessionIdContext: "string | undefined",
+    // ticketKeys: Buffer.from(""),
+    // sessionTimeout: 123,
+    // secureContext: net,
+    // enableTrace: true,
+    // requestCert: true,
+    // ALPNProtocols: [],
+    // SNICallback: net,
+    // rejectUnauthorized: true,
 };
 const openState = "open";
 const readOnlyState = "readOnly";
@@ -88,7 +96,7 @@ const states = {
     writeOnly: "writeOnly",
     // closed: "closed", // ❌
 };
-const memoryUsage = {
+const memoryUsagee = {
     rss: 123,
     heapTotal: 456,
     // heapUsed: number,
