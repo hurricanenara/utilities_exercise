@@ -122,9 +122,9 @@ const states: Record<NotClosed, NotClosed> = {
 */
 
 // // process 모듈에서 안 내보냄. NodeJS 전역에 있음.
-// import { MemoryUsage } from "process";
+import { memoryUsage } from "node:process";
 
-const memoryUsage: Partial<NodeJS.MemoryUsage> = {
+const MemoryUsage: Partial<ReturnType<typeof memoryUsage>> = {
   rss: 456,
   heapTotal: 123,
 };
